@@ -1,0 +1,125 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0078CC;
+  background-image: linear-gradient(0deg, #0078CC, white);
+}
+
+nav{
+  background-color: white;
+  color: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.topnav a{
+  float: left;
+  display:  inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+.topnav a:hover {
+  color: #0078CC;
+  border-bottom: 3px solid #0078CC;;
+}
+
+.topnav a.active {
+  color: #0078CC;
+  border-bottom: 3px solid #0078CC;
+}
+
+.topnav a.split {
+  float: left;
+  background-color: #ffffff;
+  color: #0078CC;
+}
+
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  height: 75px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+
+input[type="submit"] {
+  background-color: #0078CC;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 4px 2px;
+  padding: 7px 20px;
+  float: right;
+}
+
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.topic-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.topic-header h2 {
+    margin: 0;
+}
+.topic-info {
+    font-size: 14px;
+    color: #888;
+}
+.post {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.post:last-child {
+    margin-bottom: 0;
+}
+.post h4 {
+    margin: 0 0 5px;
+}
+.post p {
+    margin: 0;
+}
+.post-meta {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+.reply-form {
+    margin-top: 30px;
+}
