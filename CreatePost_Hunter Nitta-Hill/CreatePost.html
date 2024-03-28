@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="CreatePostStyles.css">
+  <title> Create Forum Post </title>
+</head>
+
+<body>
+  <header class="CSUSM_Header">
+    <div class="csusm-logo">
+      <img src="https://www.csusm.edu/communications/images/branding-images/csusmlogo_textonlyinitials_blue.jpg" alt="CSUSM logo" class="logo">
+    </div>
+    <div class="header-title">
+      <h1> // Create Post </h1>
+    </div>
+    <div class="header-links">
+      <a href="../HomePage/HomePage.html"> Forums </a>
+      <a href="../Fourm/fourm.html"> Posts </a>
+      <a href="../CreatePost/CreatePost.html"> Create Post </a>
+    </div>
+    <div class="profile-pic">
+      <a href="">
+        <img src="Empty_profilePic.png" alt="profilePic" id="profile-icon">
+      </a>
+    </div>
+  </header>
+
+  <div class="white-panel">
+    <form id="createPostForm" class="post-form">
+      <div class="form-section">
+        <label for="postTitle"> Title: </label>
+        <input type="text" id="postTitle" name="postTitle" required>
+      </div>
+      <div class="form-section">
+        <label for="postContent"> Content: </label>
+        <textarea id="postContent" name="postContent" rows="6" required></textarea>
+      </div>
+      <div class="form-section">
+        <label for="postTags"> Tags (comma-separated): </label>
+        <input type="text" id="postTags" name="postTags" required>
+      </div>
+      <div class="form-section">
+        <a href="../Fourm/fourm.html" class="submit-btn">Submit Post</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="CreatePost.js"> </script>
+</body>
+</html>
