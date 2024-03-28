@@ -1,0 +1,62 @@
+body {
+  height: 100%; /* Ensure HTML and body elements fill the entire viewport */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background: linear-gradient(to bottom, #87CEEB, #4682B4);
+  background-repeat: no-repeat;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-background {
+  background-color: white; /* White background */
+  padding: 25px; /* Padding on all sides(inside) */
+  border-radius: 5px; /* Optional: Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.385); /* Optional: Box shadow for depth */
+  max-width: 25%;/*left and right padding (outside)*/
+  margin: 200px auto;/*centers horizontally and starts lower*/
+}
+
+.CSUSM_Header {
+  background-color: white;
+  color: #0062a5;
+  padding: 1px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 5px;
+  z-index: 9999; /* bring to front of page */
+}
+
+.csusm-logo {
+  display: flex;
+  justify-content: left;
+}
+
+.logo {
+  width: 170px;
+  height: auto;
+}
+
+
+.header-title {
+  display: flex;
+  justify-content: left;
+}
+
+.signbutton {
+	background: #002E5A;
+	width: 125px;
+	height: 35px;
+	color: white;
+}
+
+.reset {
+	background: #bcbec0;
+	width: 200px;
+	height: 30px;
+	font-size: 12px;
+}
