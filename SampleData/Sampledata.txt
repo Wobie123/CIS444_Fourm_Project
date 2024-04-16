@@ -1,51 +1,53 @@
-Sample Data
-INSERT INTO User (Email, Username, Password, ProfilePicture, IsAnonymous)
-VALUES ('user1@example.com', 'wobie', '123', '4', '1');
+Sample Data:
+
+INSERT INTO User (Email, FirstName, LastName, Username, Password, ProfilePicture, IsAnonymous)
+VALUES 
+('user1@example.com', 'George', 'Washington', 'person1', '123', 'path/to/person1.jpg', '1'),
+('user2@example.com', 'Thomas', 'Jefferson', 'person2', '456', 'path/to/person2.jpg', '0');
 
 INSERT INTO User (Email, Username, Password, ProfilePicture, IsAnonymous)
-VALUES ('user2@example.com', 'guy', '456', '1', '0');
-
-INSERT INTO UserStarredPost (Email, PostID)
-VALUES ('user1@example.com', 1);
-
-INSERT INTO UserStarredPost (Email, PostID)
-VALUES ('user1@example.com', 2);
+VALUES ('admin@example.com', 'wobie', '789', 'path/to/wobie.jpg', '0');
 
 INSERT INTO Forum (ForumName, AdminEmail, DepartmentLink)
 VALUES 
-('General Discussion', 'admin1@example.com', NULL),
-('Technical Support', 'admin2@example.com', 'http://support.example.com'),
-('Art and Design', 'admin3@example.com', 'http://art.example.com');
+('General Discussion', 'admin@example.com', NULL),
+('Technical Support', 'admin@example.com', 'http://support.example.com'),
+('Art and Design', 'admin@example.com', 'http://art.example.com');
+
+INSERT INTO Forum (ForumName, AdminEmail)
+VALUES 
+('Marketing', 'admin@example.com'),
+('Economics', 'admin@example.com'),
+('Computer Information Systems', 'admin@example.com');
 
 INSERT INTO Post (PostOwnerEmail, ForumName, Title, Body, PostDate)
 VALUES 
 ('user1@example.com', 'General Discussion', 'First Post', 'This is the body of the first post.', '2024-04-15 08:00:00'),
 ('user2@example.com', 'Technical Support', 'Help Needed', 'I need help with a technical issue.', '2024-04-15 09:30:00'),
-('user3@example.com', 'General Discussion', 'Hello World', 'Just saying hello to everyone!', '2024-04-15 10:45:00');
+('admin@example.com', 'General Discussion', 'Hello World', 'Just saying hello to everyone!', '2024-04-15 10:45:00');
 
 INSERT INTO Reply (ReplyOwnerEmail, PostID, ReplyBody)
 VALUES 
-('user4@example.com', 1, 'Thanks for sharing!'),
-('user5@example.com', 1, 'I agree with your points.'),
-('user6@example.com', 2, 'Could you provide more details about the issue?'),
-('user7@example.com', 3, 'Hello! Welcome to the forum.');
+('user1@example.com', 1, 'Thanks for sharing!'),
+('user2@example.com', 1, 'I agree with your points.'),
+('admin@example.com', 2, 'Could you provide more details about the issue?'),
+('admin@example.com', 3, 'Hello! Welcome to the forum.');
 
 INSERT INTO Tag (TagName)
 VALUES 
 ('Question'),
-('Homework Help'),
+('Homework'),
 ('Advice'),
-('Meme'),
-('Career Help'),
+('Career'),
 ('Misc.');
 
 INSERT INTO PostTag (PostID, TagName)
 VALUES 
-(1, 'Question'),
-(2, 'Homework Help');
+(1, 'Homework'),
+(2, 'Question'),
+(3, 'Misc.');
 
-INSERT INTO Forum (ForumName, AdminEmail)
-VALUES ('Marketing', 'MarketingEmail@example.com'),
-       ('Economics', 'EconomicsEmail@example.com'),
-       ('ComputerInformationSystems', 'ComputerInformationSystemEmail@example.com');
-
+INSERT INTO UserStarredPost (Email, PostID)
+VALUES 
+('user1@example.com', 1),
+('user2@example.com', 3);
