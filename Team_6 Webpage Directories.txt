@@ -1,0 +1,26 @@
+Team Directory:
+/var/www/html/team_6
+
+Login Page:
+Directory - /var/www/html/team_6/login_signup
+URL - https://cis444.cs.csusm.edu/team_6/login_signup/login.html
+
+Sign Up Page:
+Directory - /var/www/html/team_6/login_signup
+URL - https://cis444.cs.csusm.edu/team_6/login_signup/signup.html
+
+Home Page:
+Directory - /var/www/html/team_6/HomePage
+URL - https://cis444.cs.csusm.edu/team_6/HomePage/HomePage.html
+
+Forum Page:
+Directory - /var/www/html/team_6/Forum
+URL - https://cis444.cs.csusm.edu/team_6/Forum/forums.html
+
+Post/Thread Page:
+Directory - /var/www/html/team_6/ForumView
+URL - https://cis444.cs.csusm.edu/team_6/ForumView/forumview.html
+
+Create Post Page:
+Directory - /var/www/html/team_6/CreatePost
+URL - https://cis444.cs.csusm.edu/team_6/CreatePost/CreatePost.html
