@@ -1,0 +1,62 @@
+CREATE TABLE User (
+    Email 			VARCHAR(255),
+    FirstName 			VARCHAR(50),
+    LastName 			VARCHAR(50),
+    Username 			VARCHAR(25)			NOT NULL,
+    Password 			VARCHAR(255)			NOT NULL,
+    ProfilePicture 		VARCHAR(255),
+    IsAnonymous 		BOOLEAN,
+    CONSTRAINT UserPK 		PRIMARY KEY(Email),
+    UNIQUE(Username)
+);
+
+CREATE TABLE Forum (
+    ForumName 			VARCHAR(100), 
+    AdminEmail 			VARCHAR(255)			NOT NULL,
+    DepartmentLink 		VARCHAR(255),
+    CONSTRAINT ForumPK 		PRIMARY KEY(ForumName),
+    CONSTRAINT ForumUserFK 	FOREIGN KEY(AdminEmail) 	REFERENCES User(Email) ON DELETE CASCADE
+);
+
+CREATE TABLE Post (
+    PostID 			INT AUTO_INCREMENT,
+    PostOwnerEmail 		VARCHAR(255),
+    ForumName 			VARCHAR(100)			NOT NULL,
+    Title 			VARCHAR(100)			NOT NULL,
+    Body 			TEXT				NOT NULL,
+    PostDate 			DATETIME			NOT NULL,
+    CONSTRAINT PostPK 		PRIMARY KEY(PostID),
+    CONSTRAINT PostUserFK 	FOREIGN KEY(PostOwnerEmail) 	REFERENCES User(Email) ON DELETE CASCADE,
+    CONSTRAINT PostForumFK 	FOREIGN KEY(ForumName) 		REFERENCES Forum(ForumName) ON DELETE CASCADE
+);
+
+CREATE TABLE Reply (
+    ReplyID 			INT AUTO_INCREMENT,
+    ReplyOwnerEmail 		VARCHAR(255),
+    PostID 			INT,
+    ReplyBody 			TEXT				NOT NULL,
+    CONSTRAINT ReplyPK 		PRIMARY KEY(ReplyID),
+    CONSTRAINT ReplyUserFK 	FOREIGN KEY(ReplyOwnerEmail) 	REFERENCES User(Email) ON DELETE CASCADE,
+    CONSTRAINT ReplyPostFK 	FOREIGN KEY(PostID) 		REFERENCES Post(PostID) ON DELETE CASCADE
+);
+
+CREATE TABLE Tag (
+    TagName 			CHAR(10),
+    CONSTRAINT TagPK 		PRIMARY KEY(TagName)
+);
+
+CREATE TABLE PostTag (
+    PostID 			INT,
+    TagName 			CHAR(10),
+    CONSTRAINT PostTagPK 	PRIMARY KEY(PostID, TagName),
+    CONSTRAINT PostTagPostFK 	FOREIGN KEY(PostID) 		REFERENCES Post(PostID) ON DELETE CASCADE,
+    CONSTRAINT PostTagTagFK 	FOREIGN KEY(TagName) 		REFERENCES Tag(TagName) ON DELETE CASCADE
+);
+
+CREATE TABLE UserStarredPost (
+    Email 				VARCHAR(255),
+    PostID 				INT,
+    CONSTRAINT UserStarredPostPK 	PRIMARY KEY(Email, PostID),
+    CONSTRAINT UserStarredPostUserFK 	FOREIGN KEY(Email) 		REFERENCES User(Email) ON DELETE CASCADE,
+    CONSTRAINT UserStarredPostPostFK 	FOREIGN KEY(PostID) 		REFERENCES Post(PostID) ON DELETE CASCADE
+);
