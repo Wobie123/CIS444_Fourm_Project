@@ -24,3 +24,11 @@ URL - https://cis444.cs.csusm.edu/team_6/ForumView/forumview.html
 Create Post Page:
 Directory - /var/www/html/team_6/CreatePost
 URL - https://cis444.cs.csusm.edu/team_6/CreatePost/CreatePost.html
+
+Profile Page:
+Directory - /var/www/html/team_6/ProfilePage
+URL - https://cis444.cs.csusm.edu/team_6/ProfilePage/profilepage.html
+
+Error Page:
+Directory - /var/www/html/team_6/ErrorPage
+URL - https://cis444.cs.csusm.edu/team_6/ErrorPage/error.html
