@@ -1,0 +1,184 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0078CC;
+  background-image: linear-gradient(0deg, #0078CC, white);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid black;
+    box-shadow: 1px 1px grey;
+}
+
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.links a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+}
+
+.links a:hover{
+  color: #0078CC;
+  border-bottom: 3px solid #0078CC;
+}
+
+.links a:active{
+  color: #0078CC;
+  border-bottom: 3px solid #0078CC;
+}
+
+.profilepic{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    align-content: right;
+    margin: 1rem;
+    width: fit-content;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-container .box1 {
+  justify-content: center;
+  position: absolute;
+  top: 15%;
+  left:2.5%;
+  height: 550 px;
+  width: 450px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flex-container .box2 {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  height: 700px;
+  width: 1250px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 10 auto;
+}
+.profile {
+  border-radius: 5px;
+  width: 33.333%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.profile-picture {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.info {
+  line-height: 1.6;
+}
+
+.name {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.email {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.change-password-link {
+  display: inline-block;
+  background-color: #0078CC;
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.change-password-link:hover {
+  background-color: #0062cc;
+}
+
+.forum-posts {
+
+  
+  padding: 5px;
+
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.forum-posts-title {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  padding: 5px 0;
+}
+
+.post-date {
+  color: #666;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+.post-link {
+  color: #0078CC;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.post-link:hover {
+  color: darkblue;
+}
