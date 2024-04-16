@@ -1,0 +1,21 @@
+User Table:
+Email(PK), FirstName, LastName, Username, Password, ProfilePicture, IsAnonymous
+
+Forum Table:
+ForumName(PK), AdminEmail(FK to User), DepartmentLink
+
+Post Table:
+PostID(PK), PostOwnerEmail(FK to User), ForumName(FK to Forum), Title, Body, PostDate
+
+Reply Table:
+ReplyID(PK), ReplyOwnerEmail(FK to User), PostID(FK to Post), ReplyBody
+
+Tag Table:
+TagName(PK)
+
+PostTag Table:
+(PostID(FK to Post), TagName(FK to Tag))(PK)
+
+UserStarredPost Table:
+(Email(FK to User), PostID(FK to Post))(PK)
+
