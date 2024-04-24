@@ -8,7 +8,7 @@ Post Table:
 PostID(PK), PostOwnerEmail(FK to User), ForumName(FK to Forum), Title, Body, PostDate
 
 Reply Table:
-ReplyID(PK), ReplyOwnerEmail(FK to User), PostID(FK to Post), ReplyBody
+ReplyID(PK), ReplyOwnerEmail(FK to User), PostID(FK to Post), ReplyBody, ReplyDate
 
 Tag Table:
 TagName(PK)
