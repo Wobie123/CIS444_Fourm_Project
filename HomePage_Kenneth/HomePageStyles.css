@@ -56,8 +56,36 @@ html, body {
   padding: 20px; /* Padding on all sides(inside) */
   border-radius: 10px; /* Optional: Rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for depth */
-  max-width: 80%;/*left and right padding (outside)*/
-  margin: 120px auto;/*centers horizontally and starts lower*/
+  width: 80%;/*left and right padding (outside)*/
+  margin: 0 auto;/*centers horizontally and starts lower*/
+}
+
+/*checkbox
+/* Hide default checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+
+/* Style for star checkbox */
+label {
+  width: 50px; 
+  height: 50px; 
+  background-image: url('Pictures/filledStar.png'); /* Star image */
+  background-size: auto 90%;
+  background-position: center;
+  cursor: pointer;
+  z-index: 2;
+  top: 10px;
+  left: -10px;
+}
+
+/* Checked state style */
+input[type="checkbox"]:checked + label {
+  background-image: url('Pictures/hollowStar.png'); /* Filled star image */
+}
+.star-checkbox {
+  margin-left: auto;
 }
 
 /*------drop down------https://www.w3schools.com/howto/howto_css_dropdown.asp----*/
@@ -173,4 +201,65 @@ html, body {
 /* When you move the mouse over the subnav container, open the subnav content */
 .subnav:hover .subnav-content {
   display: block;
+}
+
+/* Kane css*/
+.post {
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  flex-grow: 1;
+  background-color: #eeeeee;
+  border: 1px solid #a2a2a2;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+  position: relative;
+  width: 100%;
+}
+
+.post-container {
+  display: flex;
+  justify-content: left;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  width: 100%;
+}
+.post-image {
+  display: inline-block;
+}
+
+.post-image img {
+  height: 8rem;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 100%;
+}
+
+.post-content .post-tag {
+  text-align: center;
+  justify-content: center;
+  margin-bottom: .2rem;
+  width: fit-content;
+  padding: .2rem;
+  color: white;
+  /*border: 1px solid #a2a2a2;*/
+  border-radius: 5px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+  background-color: #0062a5;
+}
+
+.post-content .post-date {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  font-weight: bold;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
