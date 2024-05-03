@@ -3,8 +3,21 @@
 include 'config.php';
 
 // Email of the user
-$user_email = "ha134@gmail.com";
+$user_email = "ha134@csusm.edu";
 
+if (isset($_GET['postId'])) {
+    // Sanitize the postId parameter to prevent SQL injection
+    $postId = mysqli_real_escape_string($conn, $_GET['postId']);
+    
+
+    // Remove the post from starred posts
+    $sql_delete = "DELETE FROM UserStarredPost WHERE Email = '$user_email' AND PostID = $postId";
+    $result = $conn->query($sql_delete);
+
+    if (!$result) {
+        echo "Error removing post from starred: " . $conn->error;
+    }
+}
 // SQL query to retrieve starred posts for the given user along with their tags
 $sql = "SELECT Post.*, GROUP_CONCAT(Tag.TagName) AS Tags
         FROM Post
@@ -17,6 +30,7 @@ $sql = "SELECT Post.*, GROUP_CONCAT(Tag.TagName) AS Tags
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    echo '<div style="height: 400px; overflow-y: scroll;">';//container for overflow
     // Output data of each row
     while($row = $result->fetch_assoc()) {
         // Extracting post information
@@ -48,13 +62,23 @@ if ($result->num_rows > 0) {
         echo '</div>';
         echo '</div>';
         echo '</a>';
-        echo '<input type="checkbox" id="star-checkbox">';
-        echo '<label for="star-checkbox"class="star-checkbox">></label>';
+        echo "<input type='checkbox' id='star-checkbox' onclick='removeStarredPost($post_id)'>";
+        echo "<label for='star-checkbox' class='star-checkbox'>></label>";
         echo '</div>';
     }
+    echo '</div>';//end of starredpost container
 } else {
     echo "you have no starred posts";
 }
 
 $conn->close();
 ?>
+
+<script>
+    function removeStarredPost(postId) {
+        if(confirm('Are you sure you want to remove this post from starred?')) {
+            window.location.href = '<?php echo $_SERVER['PHP_SELF']; ?>?postId=' + postId;
+        }
+    }
+</script>
+
