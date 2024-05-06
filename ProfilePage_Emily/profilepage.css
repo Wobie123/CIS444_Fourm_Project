@@ -182,3 +182,17 @@ html {
 .post-link:hover {
   color: darkblue;
 }
+
+.wrapper {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Align items vertically */
+}
+.wrapper p {
+  margin-right: 10px; /*spacing*/
+}
+
+/* Adjust the width of the input element */
+.wrapper input[type="file"] {
+  width:150px; /* Or specify a specific width */
+}
+

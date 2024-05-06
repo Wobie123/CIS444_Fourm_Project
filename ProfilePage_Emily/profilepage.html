@@ -9,9 +9,9 @@
 <body>
 
   <nav class="navbar">
-    <a href="../HomePage/HomePage.html"><img src="../ForumView/images/csusmlogo.png" alt="CSUSM logo" width=30% ></a>
+    <a href="../HomePage/HomePage.php"><img src="../ForumView/images/csusmlogo.png" alt="CSUSM logo" width=30% ></a>
      <div class="links">
-        <a href="../HomePage/HomePage.html">Home</a>
+        <a href="../HomePage/HomePage.php">Home</a>
         <a href="../Forum/forums.html">Forum</a>
         <a href="../CreatePost/CreatePost.html">Make a Post</a>
      </div>
@@ -23,33 +23,126 @@
         <div class="profile">
             <img src="../Forum/images/profile-pic.png" alt="Profile Picture" class="profile-picture">
             <div class="info">
-                <h1 class="name">First Last</h1>
-                <p class="email">angjo052@csusm.edu</p>
+                
+                <h1 class="name" id="fullName"></h1>
+                <h2 class="name" id="userName"></h2>
+                <p class="email" id="userEmail"></p>
+                
                 <a href="#" class="change-password-link">Change Password</a>
+                <br>
+                <h2>Change Information</h2>
+                <form id="profileForm">
+                    <input type="text" name="firtNane" title="FirstName" placeholder="First Name">
+                    <input type="text" name="lastName" title="LastName" placeholder="Last Name">
+                    <input type="text" name="userName" title="UserName" placeholder="User Name">
+                    
+                    <div class="wrapper">
+                        <p>IsAnonymous</p>
+                        <input type="checkbox" name="isAnonymous" title="Anonymous" placeholder="IsAnonymous">
+                    </div>  
+                    
+                    <!-- need to do
+                    <p>ProfilePic</p>
+                    <input type="file" name="ID" title="profile-pic" placeholder="ProfilePic">
+                    -->       
+                    <input type="submit" value="Submit">
+                  </form>
+
             </div>
         </div>
         </div>
   <div class="box2">
         <div class="forum-posts">
-            <h2 class="forum-posts-title">Forum Posts</h2>
+            <h2 class="forum-posts-title">Your Forum Posts</h2>
             <ul class="post-list">
-                <li class="post-item">
-                    <time class="post-date">2022-02-30</time>
-                    <a class="post-link" href="../ForumView/forumview.html">MATH 160 - How do Integrals Work?</a>
-                </li>
-		<li class="post-item">
-                    <time class="post-date">2022-02-30</time>
-                    <a class="post-link" href="../ForumView/forumview.html">MATH 160 - How do Integrals Work?</a>
-                </li>
-		<li class="post-item">
-                    <time class="post-date">2022-02-30</time>
-                    <a class="post-link" href="../ForumView/forumview.html">MATH 160 - How do Integrals Work?</a>
-                </li>
-                <!-- Add more post items here -->
+                <!--ajax dynamcally add here by post-list-->
             </ul>
         </div>
     </div>
       </div>
     </div>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Serialize form data
+            const formData = new FormData(this);
+
+            // Send form data to server using fetch API
+            fetch('profilechange.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // or response.json() if expecting JSON data
+            })
+            .then(data => {
+                // Handle the response data
+                console.log(data);
+                // Optionally, display a success message or redirect the user
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        });
+        
+        window.onload = function() {
+            // Send an Ajax request to profilepageinfo.php
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "profilepageinfo.php", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var userData = JSON.parse(xhr.responseText);
+                    // Update the profile information on the page
+                    document.getElementById("fullName").innerText = userData.FirstName + " " + userData.LastName;
+                    document.getElementById("userName").innerText = userData.Username;
+                    document.getElementById("userEmail").innerText = userData.Email;
+                }
+            };
+            xhr.send();
+        };
+
+        window.onload = function() {
+        // AJAX request to fetch user posts
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'profileposts.php', true);
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Parse the JSON response
+                var userPosts = JSON.parse(xhr.responseText);
+                var postList = document.querySelector('.post-list');
+
+                // Loop through each post and create HTML elements
+                userPosts.forEach(function(post) {
+                    var listItem = document.createElement('li');
+                    listItem.classList.add('post-item');
+
+                    var postDate = document.createElement('time');
+                    postDate.classList.add('post-date');
+                    postDate.innerText = post.date;
+
+                    var postLink = document.createElement('a');
+                    postLink.classList.add('post-link');
+                    postLink.href = "../ForumView/forumview.html"; // Update with appropriate URL
+                    postLink.innerText = post.title;
+
+                    listItem.appendChild(postDate);
+                    listItem.appendChild(postLink);
+
+                    postList.appendChild(listItem);
+                });
+            }
+        };
+        xhr.send();
+    };
+
+    </script>
+
 </body>
 </html>
