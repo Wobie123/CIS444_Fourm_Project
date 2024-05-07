@@ -8,7 +8,7 @@
 
     <title>Forums v2</title>
 </head>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body>
     <header>
@@ -77,6 +77,7 @@
                             <div class="post-tag">
                                 <p id="TagName">Post Tag</p>
                             </div>
+
                             <?php
                             include './config.php';
 
@@ -98,6 +99,7 @@
                             }
                             $conn->close();
                             ?>
+
                             <!--
                             <h4 id="Title">Title</h4>
                             <p id="Body">Body</p>
