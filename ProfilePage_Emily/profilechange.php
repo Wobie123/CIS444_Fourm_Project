@@ -3,10 +3,9 @@
 include 'config.php';
 
 session_start();
-
 // Get the user's email from the session
 //$user_email = $_SESSION['email'];
-$user_email = "ha134@csusmedu"//for testing
+$user_email = "ha134@csusm.edu";//for testing
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Initialize an array to store potential errors
@@ -40,12 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$result) {
             $errors[] = "Error updating username: " . $conn->error;
         }
-    }
-
-    // Check if the profile picture is provided
-    if (isset($_FILES['profilePic']['name']) && !empty($_FILES['profilePic']['name'])) {
-        // Handle file upload and update the profile picture in the database
-        //need to do
     }
 
     // Check if the isAnonymous checkbox is checked

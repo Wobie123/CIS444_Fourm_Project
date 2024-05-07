@@ -7,7 +7,7 @@ session_start();
 
 // Get the user's email from the session
 //$user_email = $_SESSION['email'];
-$user_email = "ha134@csusmedu"//for testing
+$user_email = "ha134@csusm.edu";//for testing
 
 // Initialize an empty array to store user posts
 $user_posts = array();
@@ -45,3 +45,4 @@ $conn->close();
 // Return user posts as JSON
 echo json_encode($user_posts);
 ?>
+

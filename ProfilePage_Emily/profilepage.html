@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="profilepage.css">
 </head>
 <body>
-
+<script>console.log("Window loaded");</script>
   <nav class="navbar">
     <a href="../HomePage/HomePage.php"><img src="../ForumView/images/csusmlogo.png" alt="CSUSM logo" width=30% ></a>
      <div class="links">
@@ -32,7 +32,7 @@
                 <br>
                 <h2>Change Information</h2>
                 <form id="profileForm">
-                    <input type="text" name="firtNane" title="FirstName" placeholder="First Name">
+                    <input type="text" name="firstName" title="FirstName" placeholder="First Name">
                     <input type="text" name="lastName" title="LastName" placeholder="Last Name">
                     <input type="text" name="userName" title="UserName" placeholder="User Name">
                     
@@ -64,6 +64,7 @@
 
     <script>
         document.getElementById('profileForm').addEventListener('submit', function(event) {
+	    
             event.preventDefault(); // Prevent default form submission
 
             // Serialize form data
@@ -83,7 +84,7 @@
             .then(data => {
                 // Handle the response data
                 console.log(data);
-                // Optionally, display a success message or redirect the user
+                window.location.href = 'profilepage.html';
             })
             .catch(error => {
                 // Handle errors
@@ -91,21 +92,21 @@
             });
         });
         
-        window.onload = function() {
-            // Send an Ajax request to profilepageinfo.php
+        document.addEventListener("DOMContentLoaded", function() {
+	    // Send an Ajax request to profilepageinfo.php
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "profilepageinfo.php", true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var userData = JSON.parse(xhr.responseText);
                     // Update the profile information on the page
-                    document.getElementById("fullName").innerText = userData.FirstName + " " + userData.LastName;
-                    document.getElementById("userName").innerText = userData.Username;
-                    document.getElementById("userEmail").innerText = userData.Email;
+                    document.getElementById("fullName").textContent = userData.FirstName + " " + userData.LastName;
+                    document.getElementById("userName").textContent = userData.Username;
+                    document.getElementById("userEmail").textContent = userData.Email;
                 }
             };
             xhr.send();
-        };
+        });
 
         window.onload = function() {
         // AJAX request to fetch user posts
@@ -146,3 +147,4 @@
 
 </body>
 </html>
+
