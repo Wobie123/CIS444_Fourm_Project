@@ -23,7 +23,7 @@
       <h1>// Forums</h2>
     </div>
     <div class="profile-pic">
-      <a href="../My_Page">
+      <a href="../ProfilePage/profilepage.html">
         <img src="Pictures/Empty_profilePic.png" alt="profilePic" id="profile-icon">
       </a>
     </div>
@@ -403,13 +403,28 @@
     
     </div><!--end of the navbar-->
     <!--simlar to forum page but have it your starred posts-->
-  <div class="white-panel">
+  <div class="white-panel" id="starredPostsContainer">
     <h3>Starred Posts:</h3>
     <br>
-
-    <?php include 'get_starred_posts.php'; ?>
     
   </div>
-
+  <script>
+    // Fetch data from the server using Fetch API
+    fetch('get_starred_posts.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text(); // assuming the response is text data
+    })
+    .then(data => {
+        // Populate the starred posts container with the fetched data
+        document.getElementById('starredPostsContainer').innerHTML += data;
+    })
+    .catch(error => {
+        // Handle errors
+        console.error('There was a problem with the fetch operation:', error);
+    });
+  </script>
 </body>
 </html>

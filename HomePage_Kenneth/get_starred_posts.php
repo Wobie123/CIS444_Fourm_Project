@@ -1,14 +1,13 @@
 <?php
 // Include the database connection
 include 'config.php';
-session_start();
+
 // Email of the user
-//$user_email = "ha134@csusm.edu";//for testing
-$user_email = $_SESSION['email'];
+$user_email = "ha134@csusm.edu";
+
 if (isset($_GET['postId'])) {
     // Sanitize the postId parameter to prevent SQL injection
     $postId = mysqli_real_escape_string($conn, $_GET['postId']);
-    
 
     // Remove the post from starred posts
     $sql_delete = "DELETE FROM UserStarredPost WHERE Email = '$user_email' AND PostID = $postId";
@@ -16,8 +15,9 @@ if (isset($_GET['postId'])) {
 
     if (!$result) {
         echo "Error removing post from starred: " . $conn->error;
-    }
+    } 
 }
+
 // SQL query to retrieve starred posts for the given user along with their tags
 $sql = "SELECT Post.*, GROUP_CONCAT(Tag.TagName) AS Tags
         FROM Post
@@ -81,4 +81,5 @@ $conn->close();
         }
     }
 </script>
+
 
