@@ -72,15 +72,17 @@
 
 		$sqlemail = "SELECT Email FROM $TableName WHERE Username = '$User_name'";
 		$QueryResult = $conn->query($sqlemail);
-if ($QueryResult ->num_rows > 0) {
-  // Output data of each row
-  while($row = $QueryResult ->fetch_assoc()) {
-    echo "Email: " . $row["Email"]. "<br>";
-	$_SESSION['email'] = $row["Email"];
-  }
-} else {
-  echo "0 results";
-}
+		if ($QueryResult ->num_rows > 0) {
+ 		while($row = $QueryResult ->fetch_assoc()) {
+    		//echo "Email: " . $row["Email"]. "<br>";
+		$_SESSION['email'] = $row["Email"];
+  		}
+		} else {
+		  echo "0 results";
+		}
+		$conn->close();  
+		
+
 		$conn->close();  
 		
 	?>
