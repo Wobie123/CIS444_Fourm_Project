@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+body {
+    background: linear-gradient(to bottom, #87CEEB, #4682B4);
+    min-height: 100vh; /*viewport height*/
+    overflow-x: hidden;
+}
+
+
+/*TO DO: change header into 3 column layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.25rem;
+    background-color: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    border-top: 2px solid #3ab5e8;
+}
+
+.header-logo-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    align-content: center;
+    margin-left: 1rem;
+    width: 100%;
+}
+
+.header-logo a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-logo img{
+    height: 40px;
+}
+
+.logo-title{
+    display: inline-block;
+    padding-bottom: 1.25rem;
+    margin-left: .5rem;
+    color: #002E5A;
+}
+
+/*TO DO: mess with width*/
+.header-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 0 .5rem;
+    border: 1px solid #a2a2a2;
+}
+
+
+.header-search-container input {
+    height: 30px;
+    width: 400px;
+    text-align: left;
+    outline: none;
+    border: none;
+}
+
+.header-icon-container {
+    display: flex;
+    justify-content: right;
+    margin-right: 1rem;
+    width: 100%;
+}
+
+.header-icon-container .profile-icon img{
+    height: 50px;
+}
+
+/*
+CONTENT PANEL
+*/
+
+.content-panel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.content-panel-container .content-panel {
+    padding: 1rem;
+    width: 75%;
+    background-color: white;
+    border: 1px solid #a2a2a2;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+
+.content-panel .panel-title {
+    display: flex;
+    justify-content: left;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+	flex-direction: column;
+}
+.content-panel .panel-title h1 {
+    color: #0062a5;
+	width: fit-content;
+}
+
+.content-panel .panel-filter {
+    display: flex;
+    justify-content: right;
+}
+
+.content-panel .panel-filter label {
+    font-weight: bold;
+    margin-right: .5rem;
+}
+
+.content-panel .panel-filter select {
+    width: 10%;
+}
+
+.post-container {
+    display: flex;
+    justify-content: left;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.post-container a {
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.post {
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    width: 100%;
+    background-color: #eeeeee;
+    border: 1px solid #a2a2a2;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.post-image {
+    display: inline-block;
+}
+
+.post-image img {
+    height: 8rem;
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 100%;
+}
+
+.post-content .post-tag {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: .2rem;
+    width: fit-content;
+    padding: .2rem;
+    color: white;
+    /*border: 1px solid #a2a2a2;*/
+    border-radius: 5px;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .5);
+    background-color: #0062a5;
+}
+
+.post-content .post-date {
+    text-align: right;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+}
+
+.page-nav button, input {
+    margin: 1rem;
+    text-align: center;
+    padding: .25rem;
+}
+
+.page-nav input {
+    width: 2rem;
+    border: 1px solid #a2a2a2;
+    border-radius: 4px;
+}
+
+.page-nav button {
+    background-color: white;
+    border: 1px solid #a2a2a2;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+/**/
+/* Media query for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    header {
+        flex-direction: row; /* Stack header items vertically */
+        height: auto; /* Adjust height as needed */
+    }
+
+    .header-logo-container,
+    .header-search-container,
+    .header-icon-container {
+        margin: 0.5rem; /* Adjust margins for smaller screens */
+        width: auto; /* Allow containers to expand based on content */
+    }
+
+    .header-search-container .search-bar input {
+        width: 200px; /* Adjust width of input for smaller screens */
+    }
+
+    .content-panel-container {
+        margin: 1rem; /* Adjust margin for smaller screens */
+    }
+
+    .content-panel-container .content-panel {
+        width: 95%; /* Adjust width of content panel for smaller screens */
+    }
+}
