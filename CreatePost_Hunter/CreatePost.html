@@ -1,52 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <link rel="stylesheet" href="CreatePostStyles.css">
-  <title> Create Forum Post </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Forum Post</title>
+    <link rel="stylesheet" href="CreatePostStyles.css">
 </head>
-
 <body>
-  <header class="CSUSM_Header">
-    <div class="csusm-logo">
-      <img src="https://www.csusm.edu/communications/images/branding-images/csusmlogo_textonlyinitials_blue.jpg" alt="CSUSM logo" class="logo">
-    </div>
-    <div class="header-title">
-      <h1> // Create Post </h1>
-    </div>
-    <div class="header-links">
-      <a href="../HomePage/HomePage.html"> Home </a>
-      <a href="../Forum/forums.html"> Forum </a>
-      <a href="../CreatePost/CreatePost.html"> Create Post </a>
-    </div>
-    <div class="profile-pic">
-      <a href="">
-        <img src="images/Empty_profilePic.png" alt="profilePic" id="profile-icon">
-      </a>
-    </div>
-  </header>
+  <nav>
+   <a href="../HomePage/HomePage.html"><img src="../images/csusmlogo.png" alt="Logo" id="logo"></a>
+    <ul id="navbar">
+      <li><a href="../HomePage/HomePage.html">Home</a></li>
+      <li><a href="../Forum/forums.html">Forum</a></li>
+      <li><a class="active" href="../CreatePost/CreatePost.php">Make a Post</a></li>
+    </ul>
+   <a href="../ProfilePage/profilepage.html"><img src="../images/profile-pic.png" alt="Profile" id="profile"></a>
+  </nav>
 
-  <div class="white-panel">
-    <form id="createPostForm" class="post-form">
-      <div class="form-section">
-        <label for="postTitle"> Title: </label>
-        <input type="text" id="postTitle" name="postTitle" required>
-      </div>
-      <div class="form-section">
-        <label for="postContent"> Content: </label>
-        <textarea id="postContent" name="postContent" rows="6" required></textarea>
-      </div>
-      <div class="form-section">
-        <label for="postTags"> Tags (comma-separated): </label>
-        <input type="text" id="postTags" name="postTags" required>
-      </div>
-      <div class="form-section">
-        <a href="../Forum/forums.html" class="submit-btn">Submit Post</a>
-      </div>
-    </form>
-  </div>
+    <div class="div1">
+        <form action="CreatePost.php" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-  <script src="CreatePost.js"> </script>
+            <label for="forumName">Forum Name:</label>
+            <input type="text" id="forumName" name="forumName" required>
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="body">Body:</label>
+            <textarea id="body" name="body" required></textarea>
+
+            <label for="tags">Tags (comma-separated):</label>
+            <input type="text" id="tags" name="tags" placeholder="e.g., CS 101, CIS 444">
+
+            <button type="submit">Create Post</button>
+        </form>
+    </div>
 </body>
 </html>
