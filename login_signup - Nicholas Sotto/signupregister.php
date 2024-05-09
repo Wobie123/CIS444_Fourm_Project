@@ -21,7 +21,7 @@
 		</div>
 	</header>
 	
-	<form id = "signup" action="../HomePage/HomePage.php" class = "login-background" method = "get">
+	<form id = "signup" action="../HomePage/HomePage.html" class = "login-background" method = "get">
 <!-- NEED TO SET UP CONNECTION TO THE DATA BASE -->
 <?php
 	
@@ -33,6 +33,9 @@
 	$Password = $_GET['initialPSWD'];
 	$Password_Confirm = $_GET['secondPSWD'];
 	
+	session_start();
+	$_SESSION['email'] = '$Email';
+
 	//SECTION BELOW WILL BE CHECK FOR ANY BLANK, ERRORS, MISMATCH PASSOWRDS, AND PASSWORD LENGTH
 	//checking to see if any values are empty
 	if (empty($FirstName) || empty($LastName) 
