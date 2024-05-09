@@ -13,8 +13,7 @@
 <body>
 	<header class = "CSUSM_Header">
 	<div class="csusm-logo">
-		<img href="" src="https://www.csusm.edu/communications/images/branding-images/csusmlogo_textonlyinitials_blue.jpg"
-        alt="CSUSM logo" class="logo">
+	<img src="../images/csusmlogo.png" alt="CSUSM logo" class="logo">
 	</div>
 	
 	<div class = "header-title">
@@ -22,15 +21,18 @@
 		</div>
 	</header>
 	
-	<form id = "login" action="../HomePage/HomePage.php" class = "login-background" method = "get">
+	<form id = "login" action="../HomePage/HomePage.html" class = "login-background" method = "get">
 	<?php
+		session_start();
+		//$_SESSION['email'] = 'email';
+		//echo("Session variable is an email and is set to " . $_SESSION['email'] . ".");
 		$User_name = $_GET['user'];
 		$Pswd = $_GET['pswd'];
 		//checking to see if any of the text box is empty
 		if (empty($User_name) || empty($Pswd)) 
 			//checks to see if the username or password have been entered
 			
-			exit("<p> Please enter an email and password to login. Please go back to return to the login page.</p>"); 
+			exit("<p> Please enter an username and password to login. Please go back to return to the login page.</p>"); 
 			//displays this message to go back to attept to sign in
 	
 		//attept to connect to database
@@ -66,7 +68,19 @@
 		if ($Pswd != $Row[4])
 			die("<p>The username and password do not match. Please go back to return to the login page.");
 		//successful to match a row, will close the database
-		//else echo("<p> Username and Password matched! </p>");
+		else //echo("<p> Username and Password matched! </p>");
+
+		$sqlemail = "SELECT Email FROM $TableName WHERE Username = '$User_name'";
+		$QueryResult = $conn->query($sqlemail);
+if ($QueryResult ->num_rows > 0) {
+  // Output data of each row
+  while($row = $QueryResult ->fetch_assoc()) {
+    echo "Email: " . $row["Email"]. "<br>";
+	$_SESSION['email'] = $row["Email"];
+  }
+} else {
+  echo "0 results";
+}
 		$conn->close();  
 		
 	?>
