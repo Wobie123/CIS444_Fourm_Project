@@ -2,14 +2,13 @@
 <html lang = "en"><head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="login_signup_style.css">
-	<title> Forums Sign In </title>
+	<title>CSUSM Forum Sign Up</title>
 </head>
 
 <body>
 	<header class = "CSUSM_Header">
 	<div class="csusm-logo">
-		<img href="" src="https://www.csusm.edu/communications/images/branding-images/csusmlogo_textonlyinitials_blue.jpg"
-        alt="CSUSM logo" class="logo">
+        <img src="../images/csusmlogo.png" alt="CSUSM logo" class="logo">
 	</div>
 	
 	<div class = "header-title">
