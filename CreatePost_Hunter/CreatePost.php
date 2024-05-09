@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // db info
 $servername = "localhost";
 $username = "team_6";
@@ -10,23 +12,24 @@ $conn = new mysqli($servername, $username, $password, $database);
 
 // check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: ". $conn->connect_error);
 }
+
+// Check if the user is logged in
+if (!isset($_SESSION['email'])) {
+    header('Location:../login_signup/login.html'); // Redirect to the login page if not logged in
+    exit;
+}
+
+// Get the user's email from the session variable
+$email = $_SESSION['email'];
 
 // create_post.php
 // Validate and sanitize user input
-$email = $_POST['email'];
 $forumName = $_POST['forumName'];
 $title = $_POST['title'];
 $body = $_POST['body'];
 $tags = $_POST['tags'];
-
-// Validate email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error = 'Invalid email address';
-    header('Location: CreatePost.php?error='. urlencode($error));
-    exit;
-}
 
 // Validate forum name
 if (empty($forumName)) {
@@ -91,7 +94,7 @@ foreach ($tagsArray as $tag) {
 }
 
 // Redirect to the Homepage
-header('Location: ../HomePage/HomePage.html');
+header('Location:../HomePage/HomePage.html');
 exit;
 
 // Close the database connection
