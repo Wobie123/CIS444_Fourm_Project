@@ -1,127 +1,106 @@
-body {
+html {
   height: 100%;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #87CEEB, #4682B4);
+  width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0078CC;
+  background-image: linear-gradient(0deg, #0078CC, white);
+  background-repeat: no-repeat;
 }
 
-.CSUSM_Header {
-  background-color: white;
-  color: #0062a5;
-  padding: 1px 15px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 7%;
+nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 2px 5px;
-  z-index: 9999;
-}
-
-.header-title {
-  display: flex;
-  justify-content: left;
-  flex-grow: 1;
-}
-
-.header-title h1 {
-  white-space: nowrap; /* Prevent wrapping */
-  margin: 0; /* Remove any default margin */
-  padding: 0;
-}
-
-.csusm-logo {
-  display: flex;
-  justify-content: left;
-}
-
-.logo {
-  width: 170px;
-  height: auto;
-}
-
-.header-links {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  padding-top: 10px;
-  margin-left: 10%;
-  margin-right: 30%;
-  padding-right: 10px;
-}
-
-.header-links a {
-  text-decoration: none;
-  padding: 14px 16px;
-  color: #0062a5;
-}
-
-.header-links a:hover {
-  background-color: #0063a521;
-  color: black;
-}
-
-.profile-pic {
-  display: flex;
-  justify-content: right;
-  margin-right: 40px;
-}
-
-#profile-icon {
-  height: 50px;
-  width: 50px;
-}
-
-.white-panel {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.385);
-  max-width: 80%;
-  margin: 120px auto;
-}
-
-.post-form {
-  max-width: 600px;
-  margin: 20px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-section {
-  margin-bottom: 20px;
-}
-
-.form-section label {
-  display: block;
-  margin-bottom: 5px;
-  color: #0063a5;
-}
-
-.form-section input[type="text"],
-.form-section textarea {
-  width: 100%;
+  background-color: #fff;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-bottom: 1px solid black;
+  box-shadow: 1px 1px grey;
 }
 
-.submit-btn {
-  background-color: #0063a5;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+#logo {
+  height: 30px;
 }
 
-.submit-btn:hover {
-  background-color: #005291;
+#navbar {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  justify-content: center;
+}
+
+#navbar li {
+  margin: 0 10px;
+}
+
+#navbar a {
+  color:black;
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  color: #0078CC;
+  text-decoration: none;
+  border-bottom: 3px solid #0078CC;
+}
+
+#navbar a.active {
+  color: #0078CC;
+  text-decoration: none;
+  border-bottom: 3px solid #0078CC;
+}
+
+#profile {
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+.div1 {
+    width: 600px; /* Increased width */
+    background: white;
+    margin: 50px auto; /* Adjusted for better positioning */
+    padding: 30px; /* More padding for better layout */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold; /* Make labels bold */
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    margin-bottom: 20px; /* More space between form fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Larger font size for readability */
+    width: 100%; /* Ensure full width within the div1 */
+}
+
+textarea {
+    height: 150px; /* Larger area for text input */
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #0078CC;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003a70;
 }
